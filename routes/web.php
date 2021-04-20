@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploadImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,4 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::post('/upload',function (Request $request)
-{
-    $request->image->store('images');
-    return 'File uploaded';
-});
+Route::post('/upload',[UploadImageController::class,'UploadImage']);
